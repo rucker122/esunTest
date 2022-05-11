@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "esun", "esun\esun.csproj", "{65B26C03-2103-4730-93CE-9568F8712BD4}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "esunDb", "esunDb\esunDb.sqlproj", "{965B0157-F846-4548-8CA1-470B677FB770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65B26C03-2103-4730-93CE-9568F8712BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65B26C03-2103-4730-93CE-9568F8712BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65B26C03-2103-4730-93CE-9568F8712BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65B26C03-2103-4730-93CE-9568F8712BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965B0157-F846-4548-8CA1-470B677FB770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965B0157-F846-4548-8CA1-470B677FB770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965B0157-F846-4548-8CA1-470B677FB770}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{965B0157-F846-4548-8CA1-470B677FB770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965B0157-F846-4548-8CA1-470B677FB770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965B0157-F846-4548-8CA1-470B677FB770}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72C441E2-B6E9-4A01-B0CF-D80F0DD070F4}
+	EndGlobalSection
+EndGlobal

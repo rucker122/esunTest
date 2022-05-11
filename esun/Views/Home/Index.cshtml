@@ -1,0 +1,83 @@
+﻿@model IEnumerable<esun.Models.BRIDGE>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1>臺北市橋梁資訊</h1>
+    </div>
+    <div class="col-xs-12">
+        <div id="alert_danger" class="alert alert-danger" role="alert" style="display:none;"></div>
+        <table id="dataTable" class="table table-hover table-bordered table-striped">
+            <thead class="table">
+                <tr>
+                    <th>bridge_id</th>
+                    <th>bridge_name</th>
+                    <th>adm</th>
+                    <th>section</th>
+                    <th>county</th>
+                    <th>town</th>
+                    <th>route</th>
+                    <th>river_cross</th>
+                    <th>designer</th>
+                    <th>engineer</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr id="loading">
+                    <td class="text-center" colspan="10">資料讀取中…</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-right">*資料來源: <a href="https://data.gov.tw/dataset/145817" target="_blank">政府資料開放平台</a></p>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        getApiData();
+    }
+    function getApiData() {
+        fetch('@Url.Action("GetApiData", "Api")')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (result) {
+
+                var dt = document.getElementById("dataTable");
+                var tbody = dt.getElementsByTagName("tbody")[0];
+                // 清空tbody
+                tbody.innerHTML = "";
+
+                if (result.status == 0) {
+
+                    // 依 json 內的資料畫 html
+                    for (let dIndex = 0; dIndex < result.data.length; dIndex++) {
+                        let childHTML = "";
+                        childHTML += "<tr>";
+                        childHTML += "<td>" + result.data[dIndex].bridge_id + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].bridge_name + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].adm + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].section + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].county + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].town + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].route + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].river_cross + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].designer + "</td>";
+                        childHTML += "<td>" + result.data[dIndex].engineer + "</td>";
+                        childHTML += "</tr>";
+
+                        tbody.innerHTML += childHTML;
+                    }
+
+                }
+                else {
+                    var ad = document.getElementById("alert_danger");
+                    ad.innerHTML = "讀取資料時發生錯誤";
+                    ad.style.display = "block";
+                }
+            });
+    }
+</script>
